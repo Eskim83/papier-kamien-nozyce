@@ -1,0 +1,45 @@
+<div style="border:1px dotted; padding: 5px 20px 20px 20px">
+
+<h2>Papier, kamień, nożyce</h2>
+
+<button onclick="rps('papier')">Papier</button>
+<button onclick="rps('kamień')">Kamień</button>
+<button onclick="rps('nożyce')">Nożyce</button>
+
+<p id="rps_result">Wybierz swój ruch!</p>
+
+<script>
+
+function rps ( player) {
+
+   const choices = ['papier', 'kamień', 'nożyce'];
+   const computer = choices [ Math.floor ( Math.random() * 3 ) ];
+   
+   result = 'Komputer wybrał ' + computer + '. ';
+
+    if ( player == computer ) {
+        result += 'Remis!';
+
+    } else {
+
+        switch ( player ) {
+
+            case 'papier':
+                result += ( computer == 'kamień' ) ? 'Wygrałeś!' : 'Przegrałeś!';
+                break;
+
+            case 'kamień':
+                result += ( computer == 'nożyce' ) ? 'Wygrałeś!' : 'Przegrałeś!';
+                break;
+
+            case 'nożyce':
+                result += ( computer  == 'papier' ) ? 'Wygrałeś!' : 'Przegrałeś!';
+                break;
+        }
+    }
+    
+    document.getElementById ('rps_result').textContent = result;  
+}
+
+</script>
+</div>
